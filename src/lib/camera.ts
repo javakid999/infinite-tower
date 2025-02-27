@@ -21,9 +21,14 @@ export class Camera {
     }
 
     init(canvas: Canvas) {
-        canvas.addUniform('world', UniformType.Matrix4, -1);
-        canvas.addUniform('view', UniformType.Matrix4, -1);
-        canvas.addUniform('proj', UniformType.Matrix4, -1);
+        canvas.addUniform('world', 'f3d', UniformType.Matrix4, -1);
+        canvas.addUniform('view', 'f3d', UniformType.Matrix4, -1);
+        canvas.addUniform('proj', 'f3d', UniformType.Matrix4, -1);
+
+        canvas.addUniform('world', 'sky', UniformType.Matrix4, -1);
+        canvas.addUniform('view', 'sky', UniformType.Matrix4, -1);
+        canvas.addUniform('proj', 'sky', UniformType.Matrix4, -1);
+
         this.update(canvas);
     }
 
@@ -32,9 +37,14 @@ export class Camera {
         this.viewMatrix[12] = this.position[0]
         this.viewMatrix[13] = this.position[1]
         this.viewMatrix[14] = this.position[2]
-        this.position[1] -= 0.1;
-        canvas.uniformData('world', this.worldMatrix);
-        canvas.uniformData('view', this.viewMatrix);
-        canvas.uniformData('proj', this.projMatrix);
+        this.position[1] -= 0.05;
+        
+        canvas.uniformData('world', 'f3d', this.worldMatrix);
+        canvas.uniformData('view', 'f3d', this.viewMatrix);
+        canvas.uniformData('proj', 'f3d', this.projMatrix);
+
+        canvas.uniformData('world', 'sky', this.worldMatrix);
+        canvas.uniformData('view', 'sky', this.viewMatrix);
+        canvas.uniformData('proj', 'sky', this.projMatrix);
     }
 }

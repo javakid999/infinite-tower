@@ -2,15 +2,15 @@
     
     let frame = 0;
     const title_frames = [
-        '* Infinite Tower *',
-        '\\ Infinite Tower \\',
+        '* Infinite Obelisk *',
+        '\\ Infinite Citadel \\',
         '| Infinite Tower |',
-        '/ Infinite Tower /',
-        '- Infinite Tower -',
-        '\\ Infinite Tower \\',
-        '| Infinite Tower |',
-        '/ Infinite Tower /',
-        '- Infinite Tower -'
+        '/ Infinite Fortress /',
+        '- Infinite Monolith -',
+        '\\ Infinite Pillar \\',
+        '| Infinite Skyscraper |',
+        '/ Infinite Spire /',
+        '- Infinite Lookout -'
     ];
 
     setInterval(() => {
@@ -37,7 +37,7 @@
         }
         document.getElementById('title')!.textContent = text;
         frame = (frame == 8) ? 0 : frame+1
-    }, 80)
+    }, 200)
 
 </script>
 
